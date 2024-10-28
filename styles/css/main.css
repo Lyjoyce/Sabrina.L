@@ -1,1 +1,11 @@
-/*# sourceMappingURL=main.css.map */
+body {
+  font: 19px/23px Montserrat, sans serif;
+}
+
+body {
+  background-color: dark;
+}
+
+h1 {
+  color: royalblue;
+}/*# sourceMappingURL=main.css.map */
