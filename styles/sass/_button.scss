@@ -1,0 +1,74 @@
+@function darkenBorder($color) {
+    @return darken ($color, 20%);
+}
+@function getFontColor($bgColor){
+    @if(lightness(bgColor)> 50%){
+        @return $dark;
+    }@else {
+        @return $white;
+    }
+    }
+
+.btn {
+    margin-right: 5px;
+    padding: 15px 20px;
+    font-size: large;
+    cursor: pointer;
+    border-radius: 5px;
+    border: solid 1px;
+    transition: all ease 0.3s;
+
+    &:hover {
+        transform: translateY(-10px);
+    }
+
+    &.btn-primary {
+        background-color: $primary;
+        border-color: darkenBorder($primary);
+        color: $white;
+
+        &:hover {
+            background-color: $white;
+            color: $primary;
+        }
+    }
+
+    &.btn-secondary {
+        background-color: $secondary;
+        border-color: darkenBorder($secondary);
+        color: black;
+
+        &:hover {
+            background-color: $white;
+            color: black;
+        }
+    }
+}
+$button-colors: (
+    primary: #55198B,
+    secondary: #aaa5FF,
+    accent: #fec131,
+    blue: #007bff,
+    gray: #6c757d,
+    green: #28a745,
+    danger: #dc3545,
+    info: #17a2b8,
+    light: #f8f9fa,
+    dark: #343a40
+ );
+
+ @each $name, $color in $button-colors {
+        .btn-#{$name} {
+        background-color: $color;
+        border-color: darken($color, 10%);
+        color: getFontColor($color);
+
+             &:hover {
+                $bg-hover:lighten(color, 10%);
+                background-color:$bg-hover;
+                color: getFontColor($color);
+            }
+        }
+}
+
+
